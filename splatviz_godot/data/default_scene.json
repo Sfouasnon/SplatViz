@@ -1,0 +1,22 @@
+{
+  "splatviz_version": "2.1.0-godot-prototype",
+  "stage": {
+    "name": "NOZ Stage #1",
+    "width_ft": 59,
+    "depth_ft": 57,
+    "grid_height_ft": 18,
+    "width_m": 17.98,
+    "depth_m": 17.37,
+    "grid_height_m": 5.49
+  },
+  "defaults": {
+    "camera_body": "RED KOMODO-X proxy",
+    "lens": "Rokinon DSX24-RF 24mm T1.5",
+    "recording": "6K 16:9 60fps HQ",
+    "focus_from": "film_plane",
+    "focus_distance_m": 3.85,
+    "focus_distance_ft": 12.6,
+    "render_targets": ["1080p_png_smoke", "2k_png_validation"],
+    "production_truth": "gsplat validation required"
+  }
+}

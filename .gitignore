@@ -1,0 +1,22 @@
+.DS_Store
+.godot/
+.import/
+*.tmp
+*.import
+*.log
+
+# Generated SplatViz / Msplat / COLMAP outputs
+SplatViz_Exports/
+*_Exports/
+splatviz_msplat_dataset_*/
+splatviz_msplat_result_*/
+manual_colmap_msplat_*/
+manual_msplat_result_*/
+
+# Heavy/generated media
+*.ply
+*.zip
+*.dmg
+*.app
+**/frame_*.png
+**/CAM*_frame_*.png
