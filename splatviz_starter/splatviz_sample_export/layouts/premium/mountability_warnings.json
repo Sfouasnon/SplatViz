@@ -1,0 +1,195 @@
+{
+  "Tier": "Premium",
+  "LayoutName": "Premium 36-Camera Dense Ring",
+  "TotalCameras": 36,
+  "MountedCameras": 16,
+  "UnassignedCameras": 20,
+  "Issues": [
+    {
+      "Severity": "warning",
+      "CameraId": "C01",
+      "MountId": "truss_main_slot_01",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C02",
+      "MountId": "truss_main_slot_02",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C03",
+      "MountId": "truss_main_slot_03",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C04",
+      "MountId": "truss_main_slot_04",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C05",
+      "MountId": "truss_main_slot_05",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C06",
+      "MountId": "truss_main_slot_06",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C07",
+      "MountId": "truss_main_slot_07",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C08",
+      "MountId": "truss_main_slot_08",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C09",
+      "MountId": "truss_main_slot_09",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C10",
+      "MountId": "truss_main_slot_10",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C17",
+      "MountId": "virtual_mount_17",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C18",
+      "MountId": "virtual_mount_18",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C19",
+      "MountId": "virtual_mount_19",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C20",
+      "MountId": "virtual_mount_20",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C21",
+      "MountId": "virtual_mount_21",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C22",
+      "MountId": "virtual_mount_22",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C23",
+      "MountId": "virtual_mount_23",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C24",
+      "MountId": "virtual_mount_24",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C25",
+      "MountId": "virtual_mount_25",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C26",
+      "MountId": "virtual_mount_26",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C27",
+      "MountId": "virtual_mount_27",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C28",
+      "MountId": "virtual_mount_28",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C29",
+      "MountId": "virtual_mount_29",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C30",
+      "MountId": "virtual_mount_30",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C31",
+      "MountId": "virtual_mount_31",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C32",
+      "MountId": "virtual_mount_32",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C33",
+      "MountId": "virtual_mount_33",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C34",
+      "MountId": "virtual_mount_34",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C35",
+      "MountId": "virtual_mount_35",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C36",
+      "MountId": "virtual_mount_36",
+      "Message": "Camera has no physical mount assignment yet. Assign to box truss, stand, wall plate, or custom mount before field layout."
+    }
+  ],
+  "Summary": [
+    "16/36 cameras have physical mount assignments.",
+    "20 cameras remain virtual/unassigned and need practical rigging decisions.",
+    "Mountability is measured in real-world meters/mm and should be treated as a pre-CAD sanity pass, not final rig engineering."
+  ],
+  "State": "needs_mounting_work"
+}

@@ -1,0 +1,4 @@
+id,type,x_mm,y_mm,z_mm,end_x_mm,end_y_mm,end_z_mm,length_mm,cross_section_mm,min_height_mm,max_height_mm,slot_spacing_mm,mountable_faces
+truss_main,box_truss,-3500,0,3200,3500,0,3200,7000,290,,,250,front|rear|bottom
+stand_a,stand,-2600,-2800,0,,,,,,1200,2600,100,socket
+stand_b,stand,2600,-2800,0,,,,,,1200,2600,100,socket

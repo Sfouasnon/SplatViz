@@ -1,0 +1,75 @@
+{
+  "Tier": "Lean",
+  "LayoutName": "Lean 16-Camera Preflight",
+  "TotalCameras": 16,
+  "MountedCameras": 16,
+  "UnassignedCameras": 0,
+  "Issues": [
+    {
+      "Severity": "warning",
+      "CameraId": "C01",
+      "MountId": "truss_main_slot_01",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C02",
+      "MountId": "truss_main_slot_02",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C03",
+      "MountId": "truss_main_slot_03",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C04",
+      "MountId": "truss_main_slot_04",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C05",
+      "MountId": "truss_main_slot_05",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C06",
+      "MountId": "truss_main_slot_06",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C07",
+      "MountId": "truss_main_slot_07",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C08",
+      "MountId": "truss_main_slot_08",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C09",
+      "MountId": "truss_main_slot_09",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    },
+    {
+      "Severity": "warning",
+      "CameraId": "C10",
+      "MountId": "truss_main_slot_10",
+      "Message": "Camera is assigned to box truss but is not physically near a declared truss span."
+    }
+  ],
+  "Summary": [
+    "16/16 cameras have physical mount assignments.",
+    "No unassigned virtual cameras remain.",
+    "Mountability is measured in real-world meters/mm and should be treated as a pre-CAD sanity pass, not final rig engineering."
+  ],
+  "State": "needs_mounting_work"
+}

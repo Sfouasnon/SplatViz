@@ -1,0 +1,31 @@
+{
+  "splatviz_version": "1.5.0-m1.5",
+  "status": "hypotheses_pending_gsplat_validation",
+  "policy": "Use camera-count and angular-density scores only as prediction guidance until gsplat held-out-view tests confirm them.",
+  "layouts": [
+    {
+      "tier": "Lean",
+      "layout": "Lean 16-Camera Preflight",
+      "camera_count": 16,
+      "nominal_gap_degrees": 22.5,
+      "full_body_performer_hypothesis": "weak",
+      "gsplat_required": true
+    },
+    {
+      "tier": "Recommended",
+      "layout": "Recommended 24-Camera Two-Tier Ring",
+      "camera_count": 24,
+      "nominal_gap_degrees": 15,
+      "full_body_performer_hypothesis": "baseline_requires_validation",
+      "gsplat_required": true
+    },
+    {
+      "tier": "Premium",
+      "layout": "Premium 36-Camera Dense Ring",
+      "camera_count": 36,
+      "nominal_gap_degrees": 10,
+      "full_body_performer_hypothesis": "stronger_angle_density",
+      "gsplat_required": true
+    }
+  ]
+}

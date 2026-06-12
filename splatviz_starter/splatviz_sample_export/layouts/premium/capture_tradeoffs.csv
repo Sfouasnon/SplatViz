@@ -1,0 +1,8 @@
+tier,layout,profile,cameras,width_px,height_px,fps,compression,per_camera_mb_s,array_tb_hr,decision_band,rationale
+Premium,Premium 36-Camera Dense Ring,4K 17:9 24fps LQ,36,4096,2160,24,LQ,62,8.035,lowest_data_viable,Lowest-data profile that still keeps the full 6K sensor area for layout validation.
+Premium,Premium 36-Camera Dense Ring,5K 17:9 24fps MQ,36,5120,2700,24,MQ,108,13.997,balanced_recommended,"Best balance of data rate, full-sensor spatial detail, and motion sampling for one performer."
+Premium,Premium 36-Camera Dense Ring,6K 17:9 24fps LQ,36,6144,3240,24,LQ,110,14.256,balanced_recommended,"Best balance of data rate, full-sensor spatial detail, and motion sampling for one performer."
+Premium,Premium 36-Camera Dense Ring,6K 17:9 24fps MQ,36,6144,3240,24,MQ,155,20.088,balanced_recommended,"Best balance of data rate, full-sensor spatial detail, and motion sampling for one performer."
+Premium,Premium 36-Camera Dense Ring,6K 17:9 48fps MQ,36,6144,3240,48,MQ,310,40.176,motion_resilience,"Use when fast action, cloth, props, or occlusion risk justify the higher data rate."
+Premium,Premium 36-Camera Dense Ring,6K 17:9 60fps HQ,36,6144,3240,60,HQ,560,72.576,motion_resilience,"Use when fast action, cloth, props, or occlusion risk justify the higher data rate."
+Premium,Premium 36-Camera Dense Ring,6K 16:9 60fps HQ,36,6144,3456,60,HQ,560,72.576,motion_resilience,"Use when fast action, cloth, props, or occlusion risk justify the higher data rate."

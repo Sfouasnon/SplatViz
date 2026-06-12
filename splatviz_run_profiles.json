@@ -1,0 +1,64 @@
+{
+  "schema": "splatviz.run_profiles.v1",
+  "created_at": "2026-05-21T08:59:57",
+  "default_focus": "1080p_quality",
+  "frame_policy": "scale-only; preserve original camera frame; no crop; no squeeze",
+  "capacity_handles": {
+    "min_free_disk_gib_warning": 20,
+    "min_free_disk_gib_hard_stop": 8,
+    "stall_log_heartbeat_seconds": 900,
+    "intersection_multiplier_warn": 100,
+    "intersection_multiplier_stop": 160,
+    "note": "These are handles, not machine-specific constants. Tune per workstation."
+  },
+  "profiles": [
+    {
+      "name": "1080p_laptop_safe",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "num_iters": 10000,
+      "densify_grad_thresh": 0.001,
+      "purpose": "Conservative 1080p iteration."
+    },
+    {
+      "name": "1080p_quality",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "num_iters": 10000,
+      "densify_grad_thresh": 0.0005,
+      "target_reference": "M64",
+      "purpose": "Primary near-term quality lane."
+    },
+    {
+      "name": "4k_smoke",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "num_iters": 1500,
+      "densify_grad_thresh": 0.0005,
+      "purpose": "Dataset validation only."
+    },
+    {
+      "name": "4k_controlled",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "num_iters": 3000,
+      "densify_grad_thresh": 0.002,
+      "purpose": "Small 4K experiments only."
+    },
+    {
+      "name": "custom",
+      "resolution": "user_defined",
+      "num_iters": "user_defined",
+      "densify_grad_thresh": "user_defined",
+      "purpose": "Expose tuning handles without hard-coding for one machine."
+    }
+  ]
+}

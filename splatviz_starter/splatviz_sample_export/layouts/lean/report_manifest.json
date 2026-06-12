@@ -1,0 +1,23 @@
+{
+  "report_type": "splatviz_decision_report_manifest",
+  "report_version": "0.5.0",
+  "layout_name": "Lean 16-Camera Preflight",
+  "figures": [
+    {
+      "path": "layouts/lean/figures/overview_perspective.svg",
+      "status": "generated"
+    },
+    {
+      "path": "layouts/lean/figures/weak_zones.svg",
+      "status": "generated"
+    },
+    {
+      "path": "layouts/lean/figures/redundant_angles.svg",
+      "status": "generated"
+    },
+    {
+      "path": "layouts/lean/figures/frustum_projection.svg",
+      "status": "generated"
+    }
+  ]
+}

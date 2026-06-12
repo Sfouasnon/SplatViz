@@ -20,3 +20,15 @@ manual_msplat_result_*/
 *.app
 **/frame_*.png
 **/CAM*_frame_*.png
+
+# Local backups and archived patch packages (history lives in git now)
+*.bak
+*.bak_*
+_archive/
+
+# Generated layout/report exports
+splatviz_layout_exports/
+
+# .NET build outputs
+**/bin/
+**/obj/

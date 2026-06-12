@@ -9,7 +9,7 @@
 config_version=5
 
 [application]
-config/name="SplatViz M5.2 Godot Prototype"
+config/name="SplatViz M6.5A Diagnostic Prototype"
 run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

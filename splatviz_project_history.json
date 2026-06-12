@@ -1,0 +1,194 @@
+{
+	"created_at": "2026-05-21T08:59:57",
+	"decisions": [
+		{
+			"decision": "Recenter to 1080p first; treat 4K as smoke/source tests only for now.",
+			"reason": "4K dataset path works, but quality/capacity/storage are not productive yet.",
+			"timestamp": "2026-05-21T08:59:57"
+		}
+	],
+	"exports_root": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+	"frame_policy": "1080p downscale must preserve full camera frame; no crop; no squeeze.",
+	"latest": {
+		"app_version": "M67B",
+		"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+		"frame_policy": "scale-only; no crop; no squeeze",
+		"latest_ply_path": "",
+		"latest_ply_summary": "",
+		"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+		"msplat_log_path": "",
+		"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+		"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+		"source": "export_camera_layout",
+		"timestamp": "2026-05-21 11:34:12"
+	},
+	"project": "SplatViz",
+	"project_root": "/Users/sfouasnon/Desktop/SplatViz",
+	"roadmap": {
+		"active_focus": [
+			"1080p professional-quality 3DGS",
+			"1:1 Camera POV vs rendered still parity",
+			"Export Camera Layout CSV/JSON",
+			"True anisotropic 3DGS Splat View renderer"
+		],
+		"defer": [
+			"4K full training until storage/capacity is available",
+			"More COLMAP experiments unless camera/render parity fails"
+		]
+	},
+	"runs": [
+		{
+			"dataset_dir": null,
+			"gaussians_eval": 47112.0,
+			"intersection_overflow_count": 1.0,
+			"intersection_overflow_last": {
+				"actual": 14816.0,
+				"capacity": 13200.0,
+				"multiplier": 27.0
+			},
+			"l1": 0.0244,
+			"label": "splatviz_msplat_result_m64_middle_growth_0005_KEEP_2519",
+			"last_ms": 137.1,
+			"last_splats": 47112.0,
+			"last_step": 10000.0,
+			"psnr": 25.1959,
+			"result_dir": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m64_middle_growth_0005_KEEP_2519",
+			"saved_ply_logged": true,
+			"splat_ply_bytes": 11685328.0,
+			"splat_ply_present": true,
+			"ssim": 0.8646,
+			"timestamp": "2026-05-21T08:59:57",
+			"train_log": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m64_middle_growth_0005_KEEP_2519/train.log",
+			"train_log_bytes": 5763.0
+		},
+		{
+			"dataset_dir": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m66f_4k_colmap_seed_KEEP_20260520_173936",
+			"gaussians_eval": 25658.0,
+			"intersection_overflow_count": 2.0,
+			"intersection_overflow_last": {
+				"actual": 59027.0,
+				"capacity": 55748.0,
+				"multiplier": 43.0
+			},
+			"l1": 0.0842,
+			"label": "splatviz_msplat_result_m66f_4k_10k_controlled_001_20260520_200754",
+			"last_ms": 224.0,
+			"last_splats": 25658.0,
+			"last_step": 10000.0,
+			"psnr": 14.1588,
+			"resolution": [
+				3840.0,
+				2160.0
+			],
+			"result_dir": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m66f_4k_10k_controlled_001_20260520_200754",
+			"saved_ply_logged": true,
+			"splat_ply_bytes": 6364736.0,
+			"splat_ply_present": true,
+			"ssim": 0.7305,
+			"timestamp": "2026-05-21T08:59:57",
+			"train_log": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m66f_4k_10k_controlled_001_20260520_200754/train.log",
+			"train_log_bytes": 5901.0
+		},
+		{
+			"dataset_dir": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m66f_4k_colmap_seed_KEEP_20260520_173936",
+			"gaussians_eval": 1789.0,
+			"intersection_overflow_count": 4.0,
+			"intersection_overflow_last": {
+				"actual": 452017.0,
+				"capacity": 162799.0,
+				"multiplier": 379.0
+			},
+			"l1": 0.2615,
+			"label": "splatviz_msplat_result_m66f_4k_controlled_002_3000_20260521_084250",
+			"last_ms": 0.6,
+			"last_splats": 1789.0,
+			"last_step": 3000.0,
+			"psnr": 8.7908,
+			"resolution": [
+				3840.0,
+				2160.0
+			],
+			"result_dir": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m66f_4k_controlled_002_3000_20260521_084250",
+			"saved_ply_logged": true,
+			"splat_ply_bytes": 445222.0,
+			"splat_ply_present": true,
+			"ssim": 0.4241,
+			"timestamp": "2026-05-21T08:59:57",
+			"train_log": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m66f_4k_controlled_002_3000_20260521_084250/train.log",
+			"train_log_bytes": 2188.0
+		},
+		{
+			"app_version": "M67B",
+			"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+			"frame_policy": "scale-only; no crop; no squeeze",
+			"latest_ply_path": "",
+			"latest_ply_summary": "",
+			"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+			"msplat_log_path": "",
+			"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+			"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+			"source": "export_camera_layout",
+			"timestamp": "2026-05-21 09:30:03"
+		},
+		{
+			"app_version": "M67B",
+			"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+			"frame_policy": "scale-only; no crop; no squeeze",
+			"latest_ply_path": "",
+			"latest_ply_summary": "",
+			"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+			"msplat_log_path": "",
+			"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+			"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+			"source": "m67a1_export_tools",
+			"timestamp": "2026-05-21 09:31:44"
+		},
+		{
+			"app_version": "M67B",
+			"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+			"frame_policy": "scale-only; no crop; no squeeze",
+			"latest_ply_path": "",
+			"latest_ply_summary": "",
+			"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+			"msplat_log_path": "",
+			"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+			"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+			"source": "export_camera_layout",
+			"timestamp": "2026-05-21 10:46:38"
+		},
+		{
+			"app_version": "M67B",
+			"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+			"frame_policy": "scale-only; no crop; no squeeze",
+			"latest_ply_path": "",
+			"latest_ply_summary": "",
+			"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+			"msplat_log_path": "",
+			"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+			"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+			"source": "export_camera_layout",
+			"timestamp": "2026-05-21 11:33:55"
+		},
+		{
+			"app_version": "M67B",
+			"export_root_path": "/Users/sfouasnon/Desktop/SplatViz_Exports",
+			"frame_policy": "scale-only; no crop; no squeeze",
+			"latest_ply_path": "",
+			"latest_ply_summary": "",
+			"msplat_dataset_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_dataset_m63",
+			"msplat_log_path": "",
+			"msplat_result_root": "/Users/sfouasnon/Desktop/SplatViz_Exports/splatviz_msplat_result_m63",
+			"resolution_policy": "1080p-first; 4K only for smoke/source tests unless profile capacity allows",
+			"source": "export_camera_layout",
+			"timestamp": "2026-05-21 11:34:12"
+		}
+	],
+	"scanned_at": "2026-05-21T08:59:57",
+	"schema": "splatviz.project_history.v1",
+	"storage_policy": {
+		"do_not_require_full_dataset_archive": true,
+		"large_artifacts": "Keep only current winners/candidates in SplatViz_Exports.",
+		"metadata_ledger": "Preserve run facts and decisions in this small JSON file inside the project folder."
+	},
+	"updated_at": "2026-05-21T08:59:57"
+}

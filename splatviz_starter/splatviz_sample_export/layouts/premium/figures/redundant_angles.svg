@@ -1,0 +1,138 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'>
+<defs><linearGradient id='g' x1='0' x2='1'><stop offset='0%' stop-color='#0F181D'/><stop offset='100%' stop-color='#081015'/></linearGradient></defs><rect width='1600' height='900' fill='#081015'/><rect x='0' y='0' width='1600' height='900' fill='url(#g)' opacity='0.4'/>
+<text x='70' y='94' fill='#F5F7F6' font-size='42' font-family='Arial' font-weight='700'>Premium 36-Camera Dense Ring Redundant Angles</text>
+<text x='70' y='140' fill='#93A39D' font-size='24' font-family='Arial'>Score 99.4 • Covered 1.00 • Avg px/cm 14.2</text>
+<rect x='70' y='175' width='1010' height='650' rx='26' fill='#10171A' stroke='#24343B'/> 
+<rect x='1110' y='175' width='420' height='650' rx='26' fill='#0D1417' stroke='#24343B'/> 
+<circle cx='755' cy='475' r='150' fill='none' stroke='#6FAF8F' stroke-width='5' stroke-dasharray='16 14' opacity='0.95'/> 
+<circle cx='755' cy='475' r='32' fill='#7DBD90' opacity='0.92'/> 
+<circle cx='755' cy='475' r='8' fill='#CFE8D7'/> 
+<text x='713' y='540' fill='#D4DED9' font-size='18' font-family='Arial'>performer</text>
+<line x1='1040' y1='475' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1040' cy='475' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1054' y='480' fill='#F2F5F4' font-size='14' font-family='Arial'>C01</text>
+<line x1='1035.67' y1='425.51' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1035.67' cy='425.51' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1049.67' y='430.51' fill='#F2F5F4' font-size='14' font-family='Arial'>C02</text>
+<line x1='1022.812' y1='377.524' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1022.812' cy='377.524' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1036.812' y='382.524' fill='#F2F5F4' font-size='14' font-family='Arial'>C03</text>
+<line x1='1001.817' y1='332.5' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1001.817' cy='332.5' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1015.817' y='337.5' fill='#F2F5F4' font-size='14' font-family='Arial'>C04</text>
+<line x1='973.323' y1='291.806' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='973.323' cy='291.806' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='987.323' y='296.806' fill='#F2F5F4' font-size='14' font-family='Arial'>C05</text>
+<line x1='938.194' y1='256.677' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='938.194' cy='256.677' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='952.194' y='261.677' fill='#F2F5F4' font-size='14' font-family='Arial'>C06</text>
+<line x1='897.5' y1='228.183' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='897.5' cy='228.183' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='911.5' y='233.183' fill='#F2F5F4' font-size='14' font-family='Arial'>C07</text>
+<line x1='852.476' y1='207.188' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='852.476' cy='207.188' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='866.476' y='212.188' fill='#F2F5F4' font-size='14' font-family='Arial'>C08</text>
+<line x1='804.49' y1='194.33' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='804.49' cy='194.33' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='818.49' y='199.33' fill='#F2F5F4' font-size='14' font-family='Arial'>C09</text>
+<line x1='755' y1='190' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='755' cy='190' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='769' y='195' fill='#F2F5F4' font-size='14' font-family='Arial'>C10</text>
+<line x1='705.51' y1='194.33' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='705.51' cy='194.33' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='719.51' y='199.33' fill='#F2F5F4' font-size='14' font-family='Arial'>C11</text>
+<line x1='657.524' y1='207.188' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='657.524' cy='207.188' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='671.524' y='212.188' fill='#F2F5F4' font-size='14' font-family='Arial'>C12</text>
+<line x1='612.5' y1='228.183' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='612.5' cy='228.183' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='626.5' y='233.183' fill='#F2F5F4' font-size='14' font-family='Arial'>C13</text>
+<line x1='571.806' y1='256.677' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='571.806' cy='256.677' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='585.806' y='261.677' fill='#F2F5F4' font-size='14' font-family='Arial'>C14</text>
+<line x1='536.677' y1='291.806' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='536.677' cy='291.806' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='550.677' y='296.806' fill='#F2F5F4' font-size='14' font-family='Arial'>C15</text>
+<line x1='508.183' y1='332.5' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='508.183' cy='332.5' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='522.183' y='337.5' fill='#F2F5F4' font-size='14' font-family='Arial'>C16</text>
+<line x1='487.188' y1='377.524' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='487.188' cy='377.524' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='501.188' y='382.524' fill='#F2F5F4' font-size='14' font-family='Arial'>C17</text>
+<line x1='474.33' y1='425.51' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='474.33' cy='425.51' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='488.33' y='430.51' fill='#F2F5F4' font-size='14' font-family='Arial'>C18</text>
+<line x1='470' y1='475' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='470' cy='475' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='484' y='480' fill='#F2F5F4' font-size='14' font-family='Arial'>C19</text>
+<line x1='474.33' y1='524.49' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='474.33' cy='524.49' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='488.33' y='529.49' fill='#F2F5F4' font-size='14' font-family='Arial'>C20</text>
+<line x1='487.188' y1='572.476' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='487.188' cy='572.476' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='501.188' y='577.476' fill='#F2F5F4' font-size='14' font-family='Arial'>C21</text>
+<line x1='508.183' y1='617.5' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='508.183' cy='617.5' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='522.183' y='622.5' fill='#F2F5F4' font-size='14' font-family='Arial'>C22</text>
+<line x1='536.677' y1='658.194' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='536.677' cy='658.194' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='550.677' y='663.194' fill='#F2F5F4' font-size='14' font-family='Arial'>C23</text>
+<line x1='571.806' y1='693.323' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='571.806' cy='693.323' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='585.806' y='698.323' fill='#F2F5F4' font-size='14' font-family='Arial'>C24</text>
+<line x1='612.5' y1='721.817' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='612.5' cy='721.817' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='626.5' y='726.817' fill='#F2F5F4' font-size='14' font-family='Arial'>C25</text>
+<line x1='657.524' y1='742.812' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='657.524' cy='742.812' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='671.524' y='747.812' fill='#F2F5F4' font-size='14' font-family='Arial'>C26</text>
+<line x1='705.51' y1='755.67' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='705.51' cy='755.67' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='719.51' y='760.67' fill='#F2F5F4' font-size='14' font-family='Arial'>C27</text>
+<line x1='755' y1='760' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='755' cy='760' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='769' y='765' fill='#F2F5F4' font-size='14' font-family='Arial'>C28</text>
+<line x1='804.49' y1='755.67' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='804.49' cy='755.67' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='818.49' y='760.67' fill='#F2F5F4' font-size='14' font-family='Arial'>C29</text>
+<line x1='852.476' y1='742.812' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='852.476' cy='742.812' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='866.476' y='747.812' fill='#F2F5F4' font-size='14' font-family='Arial'>C30</text>
+<line x1='897.5' y1='721.817' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='897.5' cy='721.817' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='911.5' y='726.817' fill='#F2F5F4' font-size='14' font-family='Arial'>C31</text>
+<line x1='938.194' y1='693.323' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='938.194' cy='693.323' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='952.194' y='698.323' fill='#F2F5F4' font-size='14' font-family='Arial'>C32</text>
+<line x1='973.323' y1='658.194' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='973.323' cy='658.194' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='987.323' y='663.194' fill='#F2F5F4' font-size='14' font-family='Arial'>C33</text>
+<line x1='1001.817' y1='617.5' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1001.817' cy='617.5' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1015.817' y='622.5' fill='#F2F5F4' font-size='14' font-family='Arial'>C34</text>
+<line x1='1022.812' y1='572.476' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1022.812' cy='572.476' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1036.812' y='577.476' fill='#F2F5F4' font-size='14' font-family='Arial'>C35</text>
+<line x1='1035.67' y1='524.49' x2='755' y2='475' stroke='#24343B' stroke-width='1.5'/> 
+<circle cx='1035.67' cy='524.49' r='10' fill='#4DB778' stroke='#F2F5F4' stroke-width='1.5' /> 
+<text x='1049.67' y='529.49' fill='#F2F5F4' font-size='14' font-family='Arial'>C36</text>
+<rect x='100' y='708' width='540' height='105' rx='12' fill='#0D1417' stroke='#223139'/> 
+<text x='120' y='740' fill='#EAF0EC' font-size='22' font-family='Arial'>Legend</text>
+<circle cx='140' cy='770' r='8' fill='#4DB778'/><text x='158' y='776' fill='#BBD0C4' font-size='16' font-family='Arial'>high contribution</text>
+<circle cx='310' cy='770' r='8' fill='#D5A240'/><text x='328' y='776' fill='#BBD0C4' font-size='16' font-family='Arial'>medium</text>
+<circle cx='430' cy='770' r='8' fill='#D66363'/><text x='448' y='776' fill='#BBD0C4' font-size='16' font-family='Arial'>low</text>
+<rect x='530' y='756' width='18' height='18' fill='#B8B059' opacity='0.48'/><text x='558' y='772' fill='#BBD0C4' font-size='16' font-family='Arial'>true redundant</text>
+<text x='1135' y='220' fill='#F5F7F6' font-size='28' font-family='Arial' font-weight='700'>Redundancy diagnosis</text>
+<text x='1135' y='262' fill='#BBD0C4' font-size='18' font-family='Arial'>No true redundant same-angle sectors</text>
+<text x='1135' y='290' fill='#BBD0C4' font-size='18' font-family='Arial'>detected.</text>
+<text x='1135' y='318' fill='#BBD0C4' font-size='18' font-family='Arial'>Normal overlap is required for 4DGS.</text>
+<text x='1135' y='346' fill='#BBD0C4' font-size='18' font-family='Arial'>No camera move required. Preserve useful</text>
+<text x='1135' y='374' fill='#BBD0C4' font-size='18' font-family='Arial'>overlap; do not remove cameras solely</text>
+<text x='1135' y='402' fill='#BBD0C4' font-size='18' font-family='Arial'>because they overlap.</text>
+<text x='1135' y='430' fill='#BBD0C4' font-size='18' font-family='Arial'>Portrait roll count: 13; landscape count:</text>
+<text x='1135' y='458' fill='#BBD0C4' font-size='18' font-family='Arial'>23.</text>
+<text x='1135' y='486' fill='#BBD0C4' font-size='18' font-family='Arial'>Do not roll every camera 90°. Use selected</text>
+<text x='1135' y='514' fill='#BBD0C4' font-size='18' font-family='Arial'>rolled cameras to improve vertical body</text>
+<text x='1135' y='542' fill='#BBD0C4' font-size='18' font-family='Arial'>coverage while keeping landscape views for</text>
+<text x='1135' y='570' fill='#BBD0C4' font-size='18' font-family='Arial'>horizontal parallax.</text>
+</svg>

@@ -1,0 +1,1302 @@
+{
+  "splatviz_version": "0.5.0-m0.5",
+  "layout_name": "Premium 36-Camera Dense Ring",
+  "layout_tier": "Premium",
+  "coordinate_system": {
+    "handedness": "right_handed",
+    "up_axis": "Z",
+    "internal_units": "meters_double_precision",
+    "cad_export_units": "millimeters"
+  },
+  "room": {
+    "size_m": [
+      17.9832,
+      17.3736,
+      5.4864
+    ]
+  },
+  "capture_volume": {
+    "center_m": [
+      0,
+      0,
+      1.1
+    ],
+    "radius_m": 1.45,
+    "height_m": 2.4
+  },
+  "performer_envelope": {
+    "height_m": 1.8,
+    "radius_m": 0.35
+  },
+  "camera_package": {
+    "body": "RED Komodo-X",
+    "lens": "Rokinon DSX24-RF 24mm T1.5",
+    "recording": "6K 16:9 60fps HQ",
+    "fps": 60,
+    "compression": "HQ",
+    "estimated_per_camera_mb_s": 560,
+    "estimated_array_tb_hr": 72.576,
+    "data_rate_basis": "fdvc_red_rate_table"
+  },
+  "counts": {
+    "cameras": 36,
+    "trusses": 1,
+    "stands": 2
+  },
+  "coverage": {
+    "score": 99.355,
+    "covered_fraction": 1,
+    "max_gap_degrees": 0,
+    "average_useful_overlap": 3,
+    "average_pixels_per_cm": 14.194,
+    "missing_sectors": [],
+    "weak_sectors": [],
+    "useful_overlap_sectors": [
+      {
+        "Bin": 0,
+        "Label": "front sector 0",
+        "StartDegrees": 0,
+        "EndDegrees": 15,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 1,
+        "Label": "front-right sector 1",
+        "StartDegrees": 15,
+        "EndDegrees": 30,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 2,
+        "Label": "front-right sector 2",
+        "StartDegrees": 30,
+        "EndDegrees": 45,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 3,
+        "Label": "front-right sector 3",
+        "StartDegrees": 45,
+        "EndDegrees": 60,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 4,
+        "Label": "right sector 4",
+        "StartDegrees": 60,
+        "EndDegrees": 75,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 5,
+        "Label": "right sector 5",
+        "StartDegrees": 75,
+        "EndDegrees": 90,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 6,
+        "Label": "right sector 6",
+        "StartDegrees": 90,
+        "EndDegrees": 105,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 7,
+        "Label": "rear-right sector 7",
+        "StartDegrees": 105,
+        "EndDegrees": 120,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 8,
+        "Label": "rear-right sector 8",
+        "StartDegrees": 120,
+        "EndDegrees": 135,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 9,
+        "Label": "rear-right sector 9",
+        "StartDegrees": 135,
+        "EndDegrees": 150,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 10,
+        "Label": "rear sector 10",
+        "StartDegrees": 150,
+        "EndDegrees": 165,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 11,
+        "Label": "rear sector 11",
+        "StartDegrees": 165,
+        "EndDegrees": 180,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 12,
+        "Label": "rear sector 12",
+        "StartDegrees": 180,
+        "EndDegrees": 195,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 13,
+        "Label": "rear-left sector 13",
+        "StartDegrees": 195,
+        "EndDegrees": 210,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 14,
+        "Label": "rear-left sector 14",
+        "StartDegrees": 210,
+        "EndDegrees": 225,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 15,
+        "Label": "rear-left sector 15",
+        "StartDegrees": 225,
+        "EndDegrees": 240,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 16,
+        "Label": "left sector 16",
+        "StartDegrees": 240,
+        "EndDegrees": 255,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 17,
+        "Label": "left sector 17",
+        "StartDegrees": 255,
+        "EndDegrees": 270,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 18,
+        "Label": "left sector 18",
+        "StartDegrees": 270,
+        "EndDegrees": 285,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 19,
+        "Label": "front-left sector 19",
+        "StartDegrees": 285,
+        "EndDegrees": 300,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 20,
+        "Label": "front-left sector 20",
+        "StartDegrees": 300,
+        "EndDegrees": 315,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 21,
+        "Label": "front-left sector 21",
+        "StartDegrees": 315,
+        "EndDegrees": 330,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 22,
+        "Label": "front sector 22",
+        "StartDegrees": 330,
+        "EndDegrees": 345,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      },
+      {
+        "Bin": 23,
+        "Label": "front sector 23",
+        "StartDegrees": 345,
+        "EndDegrees": 360,
+        "CoverageCount": 36,
+        "Band": "useful_overlap",
+        "Diagnosis": "Overlap is useful for 4DGS view consistency and occlusion recovery."
+      }
+    ],
+    "true_redundant_sectors": []
+  },
+  "sensor_roll_analysis": [
+    "Portrait roll count: 13; landscape count: 23.",
+    "Do not roll every camera 90\u00B0. Use selected rolled cameras to improve vertical body coverage while keeping landscape views for horizontal parallax.",
+    "Performer envelope is human-height; selected portrait cameras are useful for head-to-toe coverage."
+  ],
+  "camera_contributions": [
+    {
+      "CameraId": "C22",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C04",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.68,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C10",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.68,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C16",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.68,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C28",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.68,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C34",
+      "PrimaryBins": 2,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 8.68,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C08",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 7.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C36",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 7.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C02",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C06",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C12",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C14",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C18",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C20",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C24",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C26",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C30",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C32",
+      "PrimaryBins": 1,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 6.98,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Keep",
+      "Rationale": "Contributes useful parallax or view overlap."
+    },
+    {
+      "CameraId": "C01",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C05",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C09",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C13",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C15",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C17",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C21",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C25",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C29",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C33",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.58,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C03",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C07",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C11",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C19",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C23",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C27",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C31",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    },
+    {
+      "CameraId": "C35",
+      "PrimaryBins": 0,
+      "TotalBinsSeen": 24,
+      "ContributionScore": 5.28,
+      "ContributionBand": "high",
+      "LeanRemovalCandidate": false,
+      "SuggestedAction": "Candidate to re-aim after weak-zone review",
+      "Rationale": "It sees the performer but is rarely the primary view."
+    }
+  ],
+  "move_suggestions": [
+    "No camera move required. Preserve useful overlap; do not remove cameras solely because they overlap."
+  ],
+  "recommendations": [
+    "Coverage is continuous around the performer envelope.",
+    "2\u20134 camera overlap is treated as useful for 4DGS, not waste.",
+    "No true redundant same-angle sectors detected.",
+    "Per-subject resolution is viable for a synthetic preflight pass.",
+    "No camera move required. Preserve useful overlap; do not remove cameras solely because they overlap.",
+    "Premium layout: use when wardrobe, props, or fast motion increase occlusion risk."
+  ],
+  "cameras": [
+    {
+      "id": "C01",
+      "position_m": [
+        3.81,
+        0,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C02",
+      "position_m": [
+        3.7521175389765125,
+        0.6615995569110046,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C03",
+      "position_m": [
+        3.580228885194311,
+        1.3030967460707978,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C04",
+      "position_m": [
+        3.2995567884187116,
+        1.9049999999999998,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C05",
+      "position_m": [
+        2.9186293282833065,
+        2.4490207929057144,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C06",
+      "position_m": [
+        2.449020792905715,
+        2.9186293282833065,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C07",
+      "position_m": [
+        1.9050000000000005,
+        3.299556788418711,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C08",
+      "position_m": [
+        1.3030967460707983,
+        3.5802288851943107,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 14.39
+    },
+    {
+      "id": "C09",
+      "position_m": [
+        0.6615995569110049,
+        3.7521175389765125,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C10",
+      "position_m": [
+        2.3329521523757077E-16,
+        3.81,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C11",
+      "position_m": [
+        -0.6615995569110045,
+        3.7521175389765125,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C12",
+      "position_m": [
+        -1.3030967460707978,
+        3.580228885194311,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C13",
+      "position_m": [
+        -1.9049999999999994,
+        3.2995567884187116,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C14",
+      "position_m": [
+        -2.449020792905715,
+        2.9186293282833065,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C15",
+      "position_m": [
+        -2.918629328283306,
+        2.4490207929057153,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C16",
+      "position_m": [
+        -3.2995567884187116,
+        1.9049999999999998,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C17",
+      "position_m": [
+        -3.5802288851943107,
+        1.3030967460707985,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C18",
+      "position_m": [
+        -3.7521175389765125,
+        0.661599556911006,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C19",
+      "position_m": [
+        -3.81,
+        4.6659043047514155E-16,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C20",
+      "position_m": [
+        -3.7521175389765125,
+        -0.6615995569110051,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C21",
+      "position_m": [
+        -3.580228885194311,
+        -1.3030967460707976,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C22",
+      "position_m": [
+        -3.299556788418711,
+        -1.9050000000000005,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 14.39
+    },
+    {
+      "id": "C23",
+      "position_m": [
+        -2.9186293282833065,
+        -2.4490207929057144,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C24",
+      "position_m": [
+        -2.4490207929057153,
+        -2.918629328283306,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C25",
+      "position_m": [
+        -1.9050000000000018,
+        -3.2995567884187103,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C26",
+      "position_m": [
+        -1.3030967460708003,
+        -3.5802288851943103,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C27",
+      "position_m": [
+        -0.6615995569110046,
+        -3.7521175389765125,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C28",
+      "position_m": [
+        -6.998856457127123E-16,
+        -3.81,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C29",
+      "position_m": [
+        0.6615995569110033,
+        -3.752117538976513,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C30",
+      "position_m": [
+        1.303096746070799,
+        -3.5802288851943107,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C31",
+      "position_m": [
+        1.9050000000000005,
+        -3.299556788418711,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C32",
+      "position_m": [
+        2.4490207929057144,
+        -2.918629328283307,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C33",
+      "position_m": [
+        2.9186293282833056,
+        -2.4490207929057157,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 15.161
+    },
+    {
+      "id": "C34",
+      "position_m": [
+        3.2995567884187103,
+        -1.9050000000000018,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 13.496
+    },
+    {
+      "id": "C35",
+      "position_m": [
+        3.58022888519431,
+        -1.3030967460708005,
+        1.55
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": false,
+      "h_fov_deg": 58.77,
+      "v_fov_deg": 33.092,
+      "distance_to_aim_m": 3.836,
+      "px_per_cm": 14.219
+    },
+    {
+      "id": "C36",
+      "position_m": [
+        3.7521175389765125,
+        -0.6615995569110048,
+        2.45
+      ],
+      "aim_target_m": [
+        0,
+        0,
+        1.1
+      ],
+      "portrait_roll": true,
+      "h_fov_deg": 33.092,
+      "v_fov_deg": 58.77,
+      "distance_to_aim_m": 4.042,
+      "px_per_cm": 14.39
+    }
+  ]
+}
