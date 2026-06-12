@@ -25,11 +25,13 @@ const M67H_GENERATOR_MAX_RADIUS_M = 6.6
 const CLEAN_RENDER_SIZE = Vector2i(1920, 1080)
 const M67F_REPORT_CONTACT_RENDER_SIZE = Vector2i(1280, 720) # clean 16:9 report contact renders; no crop/squeeze/letterbox # 1080p at source 16:9 aspect
 const SOURCE_RENDER_SIZE = Vector2i(3840, 2160) # M66E source training stills, lossless 4K 16:9
-const M66D_CAPTURE_KEEP_ASPECT = Camera3D.KEEP_HEIGHT
-const M66D_CAPTURE_NEAR = 0.05
-const M66D_CAPTURE_FAR = 4000.0
-const M66D_LANDSCAPE_VFOV_DEG = 33.09
-const M66D_PORTRAIT_VFOV_DEG = 58.77
+# Capture-camera optics now live in capture_math.gd (single source of truth).
+# These aliases keep existing call sites working during the module split.
+const M66D_CAPTURE_KEEP_ASPECT = CaptureMath.CAPTURE_KEEP_ASPECT
+const M66D_CAPTURE_NEAR = CaptureMath.CAPTURE_NEAR
+const M66D_CAPTURE_FAR = CaptureMath.CAPTURE_FAR
+const M66D_LANDSCAPE_VFOV_DEG = CaptureMath.LANDSCAPE_VFOV_DEG
+const M66D_PORTRAIT_VFOV_DEG = CaptureMath.PORTRAIT_VFOV_DEG
 var LEFT_PANEL_W = 360.0 # M67F mutable left rail width
 const RIGHT_PANEL_W = 455.0
 const TOP_BAR_H = 58.0
@@ -952,24 +954,10 @@ func _build_focus_envelope() -> void:
 	focus_envelope_root.add_child(wire)
 
 func _m67h_vec3_to_array(v: Vector3) -> Array:
-	return [v.x, v.y, v.z]
+	return CaptureMath.vec3_to_array(v)
 
 func _m67h_variant_to_vec3(v: Variant, fallback: Vector3 = Vector3.ZERO) -> Vector3:
-	if typeof(v) == TYPE_VECTOR3:
-		return v as Vector3
-	if typeof(v) == TYPE_ARRAY:
-		var a: Array = v as Array
-		if a.size() >= 3:
-			return Vector3(float(a[0]), float(a[1]), float(a[2]))
-	if typeof(v) == TYPE_DICTIONARY:
-		var d: Dictionary = v as Dictionary
-		if d.has("x") and d.has("y") and d.has("z"):
-			return Vector3(float(d["x"]), float(d["y"]), float(d["z"]))
-		if d.has("left_pct") and d.has("right_pct"):
-			return fallback
-		if d.has("–") and d.has("y") and d.has("z"):
-			return Vector3(float(d["–"]), float(d["y"]), float(d["z"]))
-	return fallback
+	return CaptureMath.variant_to_vec3(v, fallback)
 
 func _m67h_subject_frame_safety() -> Dictionary:
 	return {
@@ -1061,23 +1049,7 @@ func _m67h_camera_aim_target(c: Dictionary) -> Vector3:
 	return _m67h_capture_subject_bounds().get("center", TARGET)
 
 func _m67h_capture_axes_from_target(c: Dictionary, aim_target: Vector3) -> Dictionary:
-	var pos: Vector3 = c["position"] as Vector3
-	var forward = (aim_target - pos).normalized()
-	var right = forward.cross(Vector3.UP).normalized()
-	if right.length() < 0.001:
-		right = Vector3.RIGHT
-	var up = right.cross(forward).normalized()
-	if bool(c.get("portrait", false)):
-		var old_right = right
-		right = up
-		up = -old_right
-	return {
-		"position": pos,
-		"forward": forward,
-		"right": right,
-		"up": up,
-		"back": -forward
-	}
+	return CaptureMath.capture_axes_from_target(c, aim_target)
 
 func _m67h_project_bounds(c: Dictionary, size: Vector2i, bounds: Dictionary, aim_target: Vector3) -> Dictionary:
 	var axes = _m67h_capture_axes_from_target(c, aim_target)
@@ -1934,21 +1906,22 @@ func _next_index() -> int:
 	return (selected_index + 1) % cameras.size()
 
 func _make_frustum_mesh(data: Dictionary, material: StandardMaterial3D, strong: bool, stop_at_subject: bool = false) -> MeshInstance3D:
+	# Issue 5 fix: frustum geometry now derives from CaptureMath (per-camera
+	# capture vfov + render aspect) instead of a hardcoded 36 deg / 16:9
+	# approximation, so the overlay matches the rendered stills exactly.
+	# Portrait roll lives in the camera basis, so no width/height swap here.
 	var origin: Vector3 = data["position"] as Vector3
 	var target = _m67h_camera_aim_target(data)
-	var forward = (target - origin).normalized()
-	var right = forward.cross(Vector3.UP).normalized()
-	if right.length() < 0.001:
-		right = Vector3.RIGHT
-	var up = right.cross(forward).normalized()
+	var axes = CaptureMath.capture_axes_from_target(data, target)
+	var forward: Vector3 = axes["forward"] as Vector3
+	var right: Vector3 = axes["right"] as Vector3
+	var up: Vector3 = axes["up"] as Vector3
 	var focus_d = origin.distance_to(target)
 	var far_d = focus_d * 0.985 if stop_at_subject else max(6.0, focus_d + 1.4)
-	var half_h = tan(deg_to_rad(36.0) / 2.0) * far_d
-	var half_w = half_h * 16.0 / 9.0
-	if bool(data["portrait"]):
-		var tmp = half_h
-		half_h = half_w
-		half_w = tmp
+	var aspect = float(CLEAN_RENDER_SIZE.x) / float(CLEAN_RENDER_SIZE.y)
+	var half_ext: Vector2 = CaptureMath.frustum_half_extents(data, far_d, aspect)
+	var half_w = half_ext.x
+	var half_h = half_ext.y
 	var center = origin + forward * far_d
 	var p1 = center + right * half_w + up * half_h
 	var p2 = center - right * half_w + up * half_h
@@ -1995,10 +1968,10 @@ func _add_focus_zones_for_camera(idx: int, selected: bool) -> void:
 	# Selected camera reads clearly; all other cameras are intentionally faint context.
 	# This prevents the focus view from becoming a solid yellow/orange wall.
 	var alpha_mul = 0.38 if selected else 0.018
-	_add_frustum_segment(origin, TARGET, max(0.4, critical_near - 0.75), critical_near, _mat(Color(1.0,0.32,0.06,0.030 * alpha_mul), true), str(data["id"]) + " orange: approaching too near")
-	_add_frustum_segment(origin, TARGET, critical_near - 0.18, critical_near, _mat(Color(1.0,0.82,0.08,0.030 * alpha_mul), true), str(data["id"]) + " yellow: acceptable near focus")
-	_add_frustum_segment(origin, TARGET, critical_near, critical_far, _mat(Color(0.22,1.0,0.38,0.075 * alpha_mul), true), str(data["id"]) + " green: critical sharpness slab")
-	_add_frustum_segment(origin, TARGET, critical_far, display_far, _mat(Color(1.0,0.82,0.08,0.030 * alpha_mul), true), str(data["id"]) + " yellow: acceptable far focus")
+	_add_frustum_segment(data, max(0.4, critical_near - 0.75), critical_near, _mat(Color(1.0,0.32,0.06,0.030 * alpha_mul), true), str(data["id"]) + " orange: approaching too near")
+	_add_frustum_segment(data, critical_near - 0.18, critical_near, _mat(Color(1.0,0.82,0.08,0.030 * alpha_mul), true), str(data["id"]) + " yellow: acceptable near focus")
+	_add_frustum_segment(data, critical_near, critical_far, _mat(Color(0.22,1.0,0.38,0.075 * alpha_mul), true), str(data["id"]) + " green: critical sharpness slab")
+	_add_frustum_segment(data, critical_far, display_far, _mat(Color(1.0,0.82,0.08,0.030 * alpha_mul), true), str(data["id"]) + " yellow: acceptable far focus")
 	if not selected:
 		_add_focus_centerline(origin, TARGET, data)
 	# Focus numbers now live in the bottom-right UI readout instead of inside the 3D frustum.
@@ -2013,20 +1986,24 @@ func _add_focus_centerline(origin: Vector3, target: Vector3, data: Dictionary) -
 	line.name = str(data["id"]) + " faint focus centerline"
 	overlay_root.add_child(line)
 
-func _add_frustum_segment(origin: Vector3, target: Vector3, near_d: float, far_d: float, material: Material, name: String) -> void:
+func _add_frustum_segment(c: Dictionary, near_d: float, far_d: float, material: Material, name: String) -> void:
+	# Issue 5 fix: segments use the camera's true aim target, per-camera capture
+	# vfov, and render aspect via CaptureMath (was: TARGET + hardcoded 36 deg 16:9).
 	if far_d <= near_d + 0.02:
 		return
-	var forward = (target - origin).normalized()
-	var right = forward.cross(Vector3.UP).normalized()
-	if right.length() < 0.001:
-		right = Vector3.RIGHT
-	var up = right.cross(forward).normalized()
-	var vfov = deg_to_rad(36.0)
-	var aspect = 16.0/9.0
-	var n_h = tan(vfov/2.0) * near_d
-	var n_w = n_h * aspect
-	var f_h = tan(vfov/2.0) * far_d
-	var f_w = f_h * aspect
+	var origin: Vector3 = c["position"] as Vector3
+	var target: Vector3 = _m67h_camera_aim_target(c)
+	var axes = CaptureMath.capture_axes_from_target(c, target)
+	var forward: Vector3 = axes["forward"] as Vector3
+	var right: Vector3 = axes["right"] as Vector3
+	var up: Vector3 = axes["up"] as Vector3
+	var aspect = float(CLEAN_RENDER_SIZE.x) / float(CLEAN_RENDER_SIZE.y)
+	var near_ext: Vector2 = CaptureMath.frustum_half_extents(c, near_d, aspect)
+	var far_ext: Vector2 = CaptureMath.frustum_half_extents(c, far_d, aspect)
+	var n_w = near_ext.x
+	var n_h = near_ext.y
+	var f_w = far_ext.x
+	var f_h = far_ext.y
 	var nc = origin + forward * near_d
 	var fc = origin + forward * far_d
 	var n1 = nc + right*n_w + up*n_h
@@ -3684,27 +3661,16 @@ func _m66d_apply_scene_visibility(state: Dictionary) -> void:
 		focus_envelope_root.visible = bool(state.get("focus_envelope", true))
 
 func _m66d_capture_vfov_deg(c: Dictionary) -> float:
-	return M66D_PORTRAIT_VFOV_DEG if bool(c.get("portrait", false)) else M66D_LANDSCAPE_VFOV_DEG
+	return CaptureMath.capture_vfov_deg(c)
 
 func _m66d_capture_axes(c: Dictionary) -> Dictionary:
 	return _m67h_capture_axes_from_target(c, _m67h_camera_aim_target(c))
 
 func _m66d_capture_transform(c: Dictionary) -> Transform3D:
-	var axes = _m66d_capture_axes(c)
-	return Transform3D(Basis(axes["right"] as Vector3, axes["up"] as Vector3, axes["back"] as Vector3), axes["position"] as Vector3)
+	return CaptureMath.capture_transform(c, _m67h_camera_aim_target(c))
 
 func _m66d_capture_intrinsics(c: Dictionary, size: Vector2i) -> Dictionary:
-	var vfov = _m66d_capture_vfov_deg(c)
-	var fy = float(size.y) / (2.0 * tan(deg_to_rad(vfov) * 0.5))
-	var fx = fy
-	return {
-		"fx": fx,
-		"fy": fy,
-		"cx": float(size.x) * 0.5,
-		"cy": float(size.y) * 0.5,
-		"vfov": vfov,
-		"hfov": rad_to_deg(2.0 * atan(float(size.x) / max(1.0, 2.0 * fx)))
-	}
+	return CaptureMath.capture_intrinsics(c, size)
 
 func _m66d_capture_roll_deg(c: Dictionary) -> float:
 	return 90.0 if bool(c.get("portrait", false)) else 0.0
