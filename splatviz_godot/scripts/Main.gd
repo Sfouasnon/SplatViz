@@ -5225,6 +5225,9 @@ const M63_SEED_SAMPLES_PER_TRIANGLE := 4
 const M63_SEED_MIN_OBS := 6
 const M63_SEED_BACKFACE_DOT_MIN := -0.3
 const M63_SEED_MAX_POINTS := 20000
+# Minimum acceptable bounding-box span (meters) for the seed cloud. Anything
+# below this is treated as a degenerate origin-only cloud and flagged loudly.
+const SEED_MIN_BBOX_SPAN_M := 0.05
 const M63_MIN_SEED_POINTS := 1000
 
 func _write_seed_point_cloud_ply(dataset_root: String, cams: Array, size: Vector2i) -> Array:
@@ -5244,10 +5247,12 @@ func _write_seed_point_cloud_ply(dataset_root: String, cams: Array, size: Vector
 			var item: Dictionary = item_v as Dictionary
 			var p: Vector3 = item["p"] as Vector3
 			var col: Color = item["color"] as Color
-			var rr: int = int(clamp(round(col.r * 255.0), 0.0, 255.0))
-			var gg: int = int(clamp(round(col.g * 255.0), 0.0, 255.0))
-			var bb: int = int(clamp(round(col.b * 255.0), 0.0, 255.0))
-			_append_seed_point(points, p.x, p.y, p.z, rr, gg, bb)
+			# NOTE: append structured points, not pre-formatted strings.
+			# _write_seed_points_ply_m61 / _write_seed_diagnostics_m61 re-read each
+			# element via _seed_point_pos_m61 / _seed_point_color_m61, which only
+			# understand Vector3 or Dictionary. A String falls through and collapses
+			# to Vector3.ZERO + default grey, which silently wrote 20k origin points.
+			points.append({"p": p, "color": col})
 			obs_hist.append(int(item["obs"]))
 
 	# If mesh traversal failed completely, fall back to the previous proxy writer so export remains usable.
@@ -5525,8 +5530,18 @@ func _write_seed_diagnostics_m61(dataset_root: String, seed_source: String, raw_
 		f.store_string("bbox_min=%.6f,%.6f,%.6f\n" % [mn.x, mn.y, mn.z])
 		f.store_string("bbox_max=%.6f,%.6f,%.6f\n" % [mx.x, mx.y, mx.z])
 		f.store_string("bbox_span=%.6f,%.6f,%.6f\n" % [span.x, span.y, span.z])
+		# Guard: a seed cloud with no spatial extent hands Msplat an empty geometric
+		# prior and produces "cut"/degenerate splats. Fail loudly instead of shipping it.
+		var max_span: float = max(span.x, max(span.y, span.z))
+		if max_span < SEED_MIN_BBOX_SPAN_M:
+			f.store_string("seed_health=DEGENERATE_ZERO_EXTENT\n")
+			push_error("SplatViz seed PLY is degenerate: bbox span %.6f m < %.3f m (origin-only cloud). Msplat will not reconstruct correctly." % [max_span, SEED_MIN_BBOX_SPAN_M])
+		else:
+			f.store_string("seed_health=OK\n")
 	else:
 		f.store_string("bbox_span=0,0,0\n")
+		f.store_string("seed_health=DEGENERATE_NO_POINTS\n")
+		push_error("SplatViz seed PLY has zero points.")
 	f.close()
 
 func _write_seed_point_cloud_ply_proxy(dataset_root: String) -> void:
