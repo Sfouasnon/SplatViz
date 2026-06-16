@@ -1,6 +1,0 @@
-SPLATVIZ PLACEHOLDER EXR
-Camera: C34
-Color pipeline: LinAP1
-Resolution: 6K 16:9
-Distance candidate: 4m
-This placeholder reserves the gsplat-aligned synthetic verification path. Msplat may smoke-test this structure, but gsplat is the validation target.

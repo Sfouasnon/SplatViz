@@ -1,1 +1,0 @@
-Open app/index.html first for the Auto-Rigged 3D Scene scaffold. viewer.html remains the prior generated viewer. Then inspect splat_viability_assessment.json and layouts/recommended/gsplat_synthetic_manifest.json.
