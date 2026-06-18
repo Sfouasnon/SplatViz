@@ -4127,7 +4127,13 @@ func _msplat_command_string() -> String:
 	var input_path = _msplat_input_path()
 	var result = msplat_result_root if msplat_result_root != "" else export_root_path + "/splatviz_msplat_result_" + SPLATVIZ_EXPORT_TAG
 	var ply = result + "/splatviz_" + SPLATVIZ_EXPORT_TAG + "_TIMESTAMP_msplat_" + str(msplat_num_iters) + "iter.ply"
-	return train_path + " --input " + input_path + " --output " + ply + " --num-iters " + str(msplat_num_iters) + " --save-every 500 --eval --test-every 8"
+	# --keep-crs keeps the trained splat in the input COLMAP coordinate frame
+	# (metric, matching the rig) instead of Msplat's auto-normalized frame.
+	# Required so the splat (a) stays in real-world coordinates for the blueprint
+	# pipeline, (b) can be independently rendered/scored against the source stills,
+	# and (c) trains with world-unit densification thresholds at true scale (which
+	# also measured higher held-out PSNR than the normalized frame).
+	return train_path + " --input " + input_path + " --output " + ply + " --num-iters " + str(msplat_num_iters) + " --keep-crs --save-every 500 --eval --test-every 8"
 
 func _update_msplat_terminal_header() -> void:
 	var home = OS.get_environment("HOME")
