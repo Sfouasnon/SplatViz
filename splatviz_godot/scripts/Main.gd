@@ -386,12 +386,6 @@ func _m68a_layout_profile_slug() -> String:
 			return "frame_safe24"
 		"Frame-Safe 36-Camera Multi-Tier":
 			return "frame_safe36"
-		"Lean 16-Camera Msplat":
-			return "lean16_msplat"
-		"Recommended 24-Camera Baseline":
-			return "recommended24_baseline"
-		"Premium 36-Camera Multi-Tier":
-			return "premium36_multi_tier"
 		_:
 			return layout_name.to_lower().replace(" ", "_").replace("-", "_")
 
@@ -1522,11 +1516,17 @@ func _m67h_array_profile(name: String) -> Dictionary:
 			"tier_stagger_deg": 10.0,
 			"tiers": ["low", "mid", "high"]
 		}
-	if name.begins_with("Lean"):
-		return {"name": name, "array_size": 16}
-	if name.begins_with("Recommended"):
-		return {"name": name, "array_size": 24}
-	return {"name": name, "array_size": 36}
+	# Fallback for any unrecognized/legacy saved layout name: treat as 36-cam
+	# frame-safe so older projects still load with valid geometry.
+	return {
+		"name": name,
+		"array_size": 36,
+		"tier_count": 3,
+		"cameras_per_tier": 12,
+		"azimuth_spacing_deg": 30.0,
+		"tier_stagger_deg": 10.0,
+		"tiers": ["low", "mid", "high"]
+	}
 
 func _m67h_generated_support_limits() -> Dictionary:
 	match installation_mode:
@@ -2033,23 +2033,125 @@ func _add_frustum_segment(c: Dictionary, near_d: float, far_d: float, material: 
 	inst.name = name
 	overlay_root.add_child(inst)
 
+# Subject-coverage heatmap sampling resolution and thresholds.
+const COVERAGE_AZIMUTH_SAMPLES := 24
+const COVERAGE_HEIGHT_SAMPLES := 8
+const COVERAGE_MARKER_HALF := 0.055
+const COVERAGE_MIN_GOOD := 2  # cameras a surface point needs to be "covered"
+
+# Last computed coverage stats, surfaced in the Splat Viability readout.
+var coverage_summary_text := ""
+
 func _add_contribution_overlay() -> void:
-	var count = cameras.size()
-	var gap = 360.0 / count
-	var weak_count = 0
-	if count == 16:
-		weak_count = 8
-	elif count == 24:
-		weak_count = 2
-	else:
-		weak_count = 0
-	# selected / neighbor performer-side patches
+	if cameras.is_empty():
+		coverage_summary_text = ""
+		return
+	# Selected + neighbor performer-side patches (shows the selected view's reach).
 	_add_subject_wedge(cameras[selected_index], mat_selected, 0.68, "selected camera subject contribution")
 	_add_subject_wedge(cameras[_prev_index()], mat_prev, 0.58, "previous neighbor subject contribution")
 	_add_subject_wedge(cameras[_next_index()], mat_next, 0.58, "next neighbor subject contribution")
-	for i in range(weak_count):
-		var deg = i * 360.0 / max(weak_count, 1) + gap * 0.5
-		_add_dead_zone_hatch(deg_to_rad(deg), "add view: %.1f° gap" % gap)
+	# Real subject-coverage heatmap (replaces the old hardcoded weak_count hatching).
+	_add_coverage_heatmap()
+
+# Project a shell of points around the performer through every camera and color
+# each by how many cameras actually frame it (in-frame + front-facing). Green =
+# seen by >=2 cameras, amber = single camera, red + cross-hatch = no coverage.
+func _add_coverage_heatmap() -> void:
+	var bounds := _m67h_capture_subject_bounds()
+	var min_v: Vector3 = bounds.get("min", Vector3(-0.35, 0.0, -0.29))
+	var max_v: Vector3 = bounds.get("max", Vector3(0.35, ROBOT_HEIGHT_M, 0.29))
+	var center: Vector3 = bounds.get("center", (min_v + max_v) * 0.5)
+	var half_x: float = max(0.05, (max_v.x - min_v.x) * 0.5)
+	var half_z: float = max(0.05, (max_v.z - min_v.z) * 0.5)
+	var size := CLEAN_RENDER_SIZE
+
+	# Precompute per-camera position + aim target.
+	var cam_pos: Array = []
+	var cam_aim: Array = []
+	for c in cameras:
+		cam_pos.append(c["position"] as Vector3)
+		cam_aim.append(_m67h_camera_aim_target(c))
+
+	var green_verts := PackedVector3Array()
+	var amber_verts := PackedVector3Array()
+	var red_verts := PackedVector3Array()
+	var hatch_pts := PackedVector3Array()
+	var total := 0
+	var uncovered := 0
+	var single := 0
+
+	for hi in range(COVERAGE_HEIGHT_SAMPLES):
+		var ty := float(hi) / float(max(1, COVERAGE_HEIGHT_SAMPLES - 1))
+		var y := lerp(min_v.y + (max_v.y - min_v.y) * 0.04, min_v.y + (max_v.y - min_v.y) * 0.98, ty)
+		for ai in range(COVERAGE_AZIMUTH_SAMPLES):
+			var az := TAU * float(ai) / float(COVERAGE_AZIMUTH_SAMPLES)
+			var p := Vector3(center.x + half_x * cos(az), y, center.z + half_z * sin(az))
+			var n := Vector3(cos(az) / half_x, 0.0, sin(az) / half_z).normalized()
+			total += 1
+			var seen := 0
+			for ci in range(cameras.size()):
+				# Front-facing: the camera must be on the outward side of this point
+				# (so the subject body itself doesn't occlude it).
+				var cpos: Vector3 = cam_pos[ci]
+				if (cpos - p).dot(n) <= 0.0:
+					continue
+				var caim: Vector3 = cam_aim[ci]
+				var proj := CaptureMath.project_point(cameras[ci], caim, size, p)
+				if proj.is_empty():
+					continue
+				var px := float(proj["x"])
+				var py := float(proj["y"])
+				if px < 0.0 or px >= float(size.x) or py < 0.0 or py >= float(size.y):
+					continue
+				seen += 1
+			# Outward-facing marker quad at this surface point.
+			var right := n.cross(Vector3.UP).normalized()
+			if right.length() < 0.001:
+				right = Vector3.RIGHT
+			var s := COVERAGE_MARKER_HALF
+			var base := p + n * 0.012
+			var q1 := base + right * s + Vector3.UP * s
+			var q2 := base - right * s + Vector3.UP * s
+			var q3 := base - right * s - Vector3.UP * s
+			var q4 := base + right * s - Vector3.UP * s
+			if seen >= COVERAGE_MIN_GOOD:
+				green_verts.append_array(PackedVector3Array([q1, q2, q3, q1, q3, q4]))
+			elif seen == 1:
+				single += 1
+				amber_verts.append_array(PackedVector3Array([q1, q2, q3, q1, q3, q4]))
+			else:
+				uncovered += 1
+				red_verts.append_array(PackedVector3Array([q1, q2, q3, q1, q3, q4]))
+				hatch_pts.append_array(PackedVector3Array([base + (right + Vector3.UP) * s, base - (right + Vector3.UP) * s]))
+				hatch_pts.append_array(PackedVector3Array([base + (right - Vector3.UP) * s, base - (right - Vector3.UP) * s]))
+
+	_add_coverage_patch_mesh(green_verts, Color(0.20, 0.95, 0.45, 0.40), "coverage >=2 cameras")
+	_add_coverage_patch_mesh(amber_verts, Color(1.0, 0.78, 0.16, 0.52), "coverage single camera")
+	_add_coverage_patch_mesh(red_verts, Color(1.0, 0.22, 0.12, 0.60), "coverage gap (no view)")
+	if hatch_pts.size() > 0:
+		var hatch := MeshInstance3D.new()
+		hatch.mesh = _line_mesh(hatch_pts)
+		hatch.material_override = mat_weak_line
+		hatch.name = "coverage gap cross-hatch"
+		overlay_root.add_child(hatch)
+
+	var good := total - uncovered - single
+	var good_pct := 100.0 * float(good) / float(max(1, total))
+	coverage_summary_text = "Coverage shell: %d%% seen by ≥2 cams · %d single-view · %d gap zones (cross-hatched)" % [int(round(good_pct)), single, uncovered]
+
+func _add_coverage_patch_mesh(verts: PackedVector3Array, color: Color, mesh_name: String) -> void:
+	if verts.size() < 3:
+		return
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = verts
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	var inst := MeshInstance3D.new()
+	inst.mesh = mesh
+	inst.material_override = _mat(color, true)
+	inst.name = mesh_name
+	overlay_root.add_child(inst)
 
 func _add_subject_wedge(data: Dictionary, material: Material, scale: float, label: String) -> void:
 	var origin: Vector3 = data["position"] as Vector3
@@ -2178,12 +2280,12 @@ func _build_ui() -> void:
 	_add_label(lv, "LAYOUT", 14, Color(0.45, 1.0, 0.67))
 	layout_option = OptionButton.new()
 	layout_option.add_theme_font_size_override("font_size", 16)
+	# Only the Frame-Safe tiers remain: they produce accurate, frame-safe camera
+	# projections. Legacy presets (Lean 16 / Recommended 24 / Premium 36) were
+	# removed because their framing was not guaranteed frame-safe.
 	layout_option.add_item("Frame-Safe 12-Camera Multi-Tier")
 	layout_option.add_item("Frame-Safe 24-Camera Multi-Tier")
 	layout_option.add_item("Frame-Safe 36-Camera Multi-Tier")
-	layout_option.add_item("Lean 16-Camera Msplat")
-	layout_option.add_item("Recommended 24-Camera Baseline")
-	layout_option.add_item("Premium 36-Camera Multi-Tier")
 	layout_option.item_selected.connect(func(idx): _on_layout_selected(idx))
 	for i in range(layout_option.item_count):
 		if layout_option.get_item_text(i) == layout_name:
@@ -2720,10 +2822,10 @@ func _m66d_layout_camera_pov_preview(s: Vector2) -> void:
 func _update_comparison_panel() -> void:
 	if comparison_label == null:
 		return
-	comparison_label.text = "ANGLE DENSITY\n"
-	comparison_label.text += "• Lean 16-Camera Msplat: max gap ≈ 22.5°. Use for Msplat runs only; weak for full-body performer reconstruction hypotheses.\n"
-	comparison_label.text += "• Recommended 24-Camera Baseline: max gap ≈ 15°. Plausible baseline; validate with clean renders before trusting lower resolutions.\n"
-	comparison_label.text += "• Premium 36-Camera Multi-Tier: max gap ≈ 10°. Stronger low/mid/high angular density; inspect same-tier neighbor redundancy.\n\n"
+	comparison_label.text = "ANGLE DENSITY (Frame-Safe tiers, low/mid/high)\n"
+	comparison_label.text += "• Frame-Safe 12-Camera: 3×4, max azimuth gap ≈ 90°/tier. Sparse — expect coverage gaps; check the Splat Viability heatmap.\n"
+	comparison_label.text += "• Frame-Safe 24-Camera: 3×8, max azimuth gap ≈ 45°/tier. Mid density; validate held-out PSNR before trusting.\n"
+	comparison_label.text += "• Frame-Safe 36-Camera: 3×12, max azimuth gap ≈ 30°/tier. Strongest angular density; inspect same-tier neighbor redundancy.\n\n"
 	comparison_label.text += "RESOLUTION DECISION\n"
 	comparison_label.text += "6K is the current reference. 5K is the first data-reduction candidate at ~13–14 ft if msplat/gsplat validation holds. 4K remains a test candidate, not a planning assumption, unless cameras move closer or reconstruction metrics support it.\n\n"
 	comparison_label.text += "ROLL STRATEGY\n"
@@ -3312,12 +3414,12 @@ func _update_prediction() -> void:
 		return
 	var count = cameras.size()
 	var msg = "Prediction status: SplatViz hypotheses require gsplat validation. Msplat is a local run option only.\n"
-	if count == 16:
-		msg += "16 cameras: useful Msplat run, but weak for full-body performer hypothesis. Max angular gap ≈ 22.5°; target gap is ≤15° before calling a layout production-safe."
-	elif count == 24:
-		msg += "24 cameras: plausible baseline. Looks resolved visually, but validation still requires rendered stills + gsplat holdout tests."
+	if count <= 12:
+		msg += "12 cameras (3×4): sparse. Expect coverage gaps between tiers (≈90° azimuth/tier) — read the Splat Viability heatmap before trusting. Good for quick Msplat checks, weak for full-body."
+	elif count <= 24:
+		msg += "24 cameras (3×8): plausible baseline, ≈45° azimuth/tier. Looks resolved visually, but validation still requires rendered stills + gsplat/Msplat held-out PSNR."
 	else:
-		msg += "36 cameras: stronger angle-density candidate with low/mid/high tiers. Still check redundant same-neighborhood overlap and mount feasibility."
+		msg += "36 cameras (3×12): strongest angle-density candidate, ≈30° azimuth/tier with low/mid/high tiers. Still check redundant same-neighborhood overlap and mount feasibility."
 	prediction_label.text = msg
 
 func _update_focus_readout() -> void:
@@ -3340,7 +3442,9 @@ func _update_focus_readout() -> void:
 		var gap = _camera_gap_degrees()
 		focus_readout_label.text = "SPLAT VIABILITY READOUT  " + str(c["id"]) + "\n"
 		focus_readout_label.text += "Frustum key: selected camera is bright; neighbor / layout context is transparent.\n"
-		focus_readout_label.text += "White cross-hatch = weak contribution sector; add/reassign view.\n"
+		focus_readout_label.text += "Coverage shell: green = seen by ≥2 cams, amber = single view, red + cross-hatch = no coverage (add/reassign a view there).\n"
+		if coverage_summary_text != "":
+			focus_readout_label.text += coverage_summary_text + "\n"
 		focus_readout_label.text += "Current max angular gap ≈ %.1f°. Target ≤ 15° for baseline production hypothesis.\n" % gap
 		focus_readout_label.text += _redundancy_summary()
 	else:
